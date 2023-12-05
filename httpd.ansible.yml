@@ -1,14 +1,14 @@
 ---
-- name: Apache server installed
+- name: Play 1 - Install and configure Apache Web Server
   hosts: all
-  become: true
-  remote_user: root
+  #become: true
+  #remote_user: root
   tasks:
-    - name: Install Apache
+    - name: Install Apache Web Server
       ansible.builtin.dnf:
         name: httpd
 
-    - name: Apache enabled and running
+    - name: Enable and run Apache service
       ansible.builtin.service:
         name: httpd
         enabled: true
@@ -27,8 +27,7 @@
         state: enabled
 
 
-
-- name: Check URL
+- name: Play 2 - Check health of newly installed Apache Web Servers
   hosts: all
   connection: local
   gather_facts: no
