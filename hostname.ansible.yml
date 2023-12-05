@@ -1,0 +1,17 @@
+---
+- name: A simple test playbook
+  hosts: all
+  remote_user: root
+
+  tasks:
+  - name: Hello World
+    ansible.builtin.debug:
+      msg: Hello world!
+
+  - name: Run hostname shell command
+    ansible.builtin.shell: hostname
+    register: results
+
+  - name: Result of hostname shell command
+    debug:
+      var: results
