@@ -1,6 +1,6 @@
 ---
 - name: Apache server installed
-  hosts: web
+  hosts: all
   become: true
   remote_user: root
   tasks:
