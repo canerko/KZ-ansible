@@ -4,22 +4,21 @@
   become: true
   remote_user: root
   tasks:
+    - name: Install Apache
+      ansible.builtin.dnf:
+        name: httpd
 
-    # - name: Install Apache
-    #   ansible.builtin.dnf:
-    #     name: httpd
+    - name: Apache enabled and running
+      ansible.builtin.service:
+        name: httpd
+        enabled: true
+        state: started
 
-    # - name: Apache enabled and running
-    #   ansible.builtin.service:
-    #     name: httpd
-    #     enabled: true
-    #     state: started
-
-    # - name: Copy index.html
-    #   ansible.builtin.copy:
-    #     src: web.html
-    #     dest: /var/www/html/index.html
-    #     mode: '644'
+    - name: Copy index.html
+      ansible.builtin.copy:
+        src: web.html
+        dest: /var/www/html/index.html
+        mode: '644'
 
 
 - name: Check URL
