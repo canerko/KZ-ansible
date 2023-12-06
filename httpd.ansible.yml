@@ -20,7 +20,7 @@
         dest: /var/www/html/index.html
         mode: '644'
 
-    - name: permit traffic in default zone for http service
+    - name: Permit traffic in the firewall
       ansible.posix.firewalld:
         service: http
         permanent: true
@@ -35,7 +35,8 @@
   #  node: "node1"
 
   tasks:
-    - name: Check that you can connect (GET) to a page and it returns a status 200
+    - name: Check healt of the web server
+      #name: Check that you can connect (GET) to a page and it returns a status 200
       uri:
         #url: "http://{{ node }}"
         url: "http://{{ ansible_host }}"
