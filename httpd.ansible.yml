@@ -35,7 +35,7 @@
   #  node: "node1"
 
   tasks:
-    - name: Check healt of the web server
+    - name: Check health of the web server
       #name: Check that you can connect (GET) to a page and it returns a status 200
       uri:
         #url: "http://{{ node }}"
